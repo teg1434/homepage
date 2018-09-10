@@ -1,0 +1,21 @@
+
+//블럭 + 2d 콜라이더 + 중력 걸기
+viod update(){
+transform. translate(0,-0.1f,0);//해당프레임 등속으로 낙하
+
+destroy(gameobject); // 화면밖으로 나가면  오브젝트 소멸
+
+}
+
+
+//골대 도착
+void ontriggerenter2d(collider2d other){
+debug.log("도착!")
+scenemanager.loadscene("clearscene");
+}
+
+//점프 푸쉬
+void update(){
+//wjavmgksek
+if(input.getkeydown(keycode.space))
+}
