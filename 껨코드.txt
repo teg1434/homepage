@@ -34,3 +34,16 @@ void update(){
 float length = this.goal.transform.position.x-this.man.transform.position.x;
 this. distance. getcomponent<text>().text="탈출까지"+length.tostring("f2")+"m";
 }
+  
+  //이동
+ public void lbuttondown(){
+ transform.translate(-3,0,0);
+ }
+  public void rbuttondown(){
+ transform.translate(3,0,0);
+ }
+ //점프
+  public void jbuttondown(){
+ transform.translate(0,5,0);
+ }
+  
