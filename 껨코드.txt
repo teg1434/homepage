@@ -1,21 +1,36 @@
 
-//ºí·° + 2d Äİ¶óÀÌ´õ + Áß·Â °É±â
+//ë¸”ëŸ­ + 2d ì½œë¼ì´ë” + ì¤‘ë ¥ ê±¸ê¸°
 viod update(){
-transform. translate(0,-0.1f,0);//ÇØ´çÇÁ·¹ÀÓ µî¼ÓÀ¸·Î ³«ÇÏ
-
-destroy(gameobject); // È­¸é¹ÛÀ¸·Î ³ª°¡¸é  ¿ÀºêÁ§Æ® ¼Ò¸ê
-
+transform. translate(0,-0.1f,0);//í•´ë‹¹í”„ë ˆì„ ë“±ì†ìœ¼ë¡œ ë‚™í•˜ì‚°
+if(transform.position.y<-5.0f){ 
+destroy(gameobject); // í™”ë©´ë°–ìœ¼ë¡œ ë‚˜ê°€ë©´  ì˜¤ë¸Œì íŠ¸ ì†Œë©¸
+}
 }
 
 
-//°ñ´ë µµÂø
+//ê³¨ëŒ€ ë„ì°©
 void ontriggerenter2d(collider2d other){
-debug.log("µµÂø!")
+debug.log("íƒˆì¶œ!")
 scenemanager.loadscene("clearscene");
 }
 
-//Á¡ÇÁ Çª½¬
+//ì í”„ í‘¸ì‰¬
 void update(){
 //wjavmgksek
 if(input.getkeydown(keycode.space))
+}
+
+// ê±°ë¦¬ í‘œì‹œ
+gameobject man;
+gameobject goal;
+gameobject distance(ê±°ë¦¬ì•ˆë‚´ ë¬¸êµ¬);
+
+void start(){
+this.man= gameobjet.find( man = ì˜¤ë¸Œì íŠ¸ì™€ ì´ë¦„ ê°™ê²Œ í•´ë‘˜ê²ƒ);
+this.goal= gameobjet.find(goal);
+this.distance= gameobjet.find(distance);}
+
+void update(){
+float length = this.goal.transform.position.x-this.man.transform.position.x;
+this. distance. getcomponent<text>().text="íƒˆì¶œê¹Œì§€"+length.tostring("f2")+"m";
 }
