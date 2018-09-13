@@ -46,4 +46,13 @@ this. distance. getcomponent<text>().text="탈출까지"+length.tostring("f2")+"
   public void jbuttondown(){
  transform.translate(0,5,0);
  }
+ 
+ //체력
+ if(d<r1+r2){
+ gameobject director = gameobject .find(gamedirector);
+ director.getcomponent<gamedirector>().decreasehp();
+ destroy(gameobject);// 충돌시 소멸
+ 
+ 
+ }
   
