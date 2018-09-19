@@ -99,5 +99,26 @@ if(Physics2D.Raycast(ray, out hit, distance)) {
 } 
 
 //----------------------------------------------------------------------
+ 
+ 
  박스_0 = Instantiate(prefab, new Vector3(tempVector3, tempVector3.z));
+ 
+ 
+ //----------------------------------------------------------------------------
+  if (Input.GetMouseButtonDown(0)) 
+        { 
+            // 스크린 좌표를 월드 좌표로 변환함 
+            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+
+            Vector2 touchPos = new Vector2(wp.x, wp.y); 
+
+            // 오브젝트의 위치를 갱신함 
+            transform.position = touchPos; 
+
+            // 생성 
+            GameObject instObj =  Instantiate(instaniateObj, transform.position, Quaternion.identity) as GameObject; 
+
+            // 파괴 
+            Destroy(instObj.gameObject, 0.1f); 
+        }
 
