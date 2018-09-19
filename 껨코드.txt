@@ -81,8 +81,11 @@ this. distance. getcomponent<text>().text="탈출까지"+length.tostring("f2")+"
         {
             // 마우스 입력 위치를 카메라가 바라보는 영역 안의 월드 좌표(절대 좌표)로 변환.
             tempVector3 = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            tempVector3.z = 0;
+            tempVector3.z = -1;
+            
         }
+        
+        
         
         tempObj = Instantiate(박스_0, 박스_0Point.position,
             Quaternion.LookRotation(박스_0Direction)) as GameObject;
@@ -94,4 +97,7 @@ RayCastHit2D hit;
 if(Physics2D.Raycast(ray, out hit, distance)) { 
         hit.point값으로 생성 
 } 
+
+//----------------------------------------------------------------------
+ 박스_0 = Instantiate(prefab, new Vector3(tempVector3, tempVector3.z));
 
