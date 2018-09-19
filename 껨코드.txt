@@ -7,24 +7,24 @@ destroy(gameobject); // 화면밖으로 나가면  오브젝트 소멸
 }
 }
 
-
+//-------------------------------------------------------------------
 //골대 도착
 void ontriggerenter2d(collider2d other){
 debug.log("탈출!")
 scenemanager.loadscene("clearscene");
 }
-
+//------------------------------------------------------------------------------------
 //점프 푸쉬
 void update(){
 //wjavmgksek
 if(input.getkeydown(keycode.space))
 }
-
+//---------------------------------------------------------------
 // 거리 표시
 gameobject man;
 gameobject goal;
 gameobject distance(거리안내 문구);
-
+//---------------------------------------------------------------------
 void start(){
 this.man= gameobjet.find( man = 오브젝트와 이름 같게 해둘것);
 this.goal= gameobjet.find(goal);
@@ -34,7 +34,7 @@ void update(){
 float length = this.goal.transform.position.x-this.man.transform.position.x;
 this. distance. getcomponent<text>().text="탈출까지"+length.tostring("f2")+"m";
 }
-  
+  //-------------------------------------------------------------------------------
   //이동
  public void lbuttondown(){
  transform.translate(-3,0,0);
@@ -42,17 +42,56 @@ this. distance. getcomponent<text>().text="탈출까지"+length.tostring("f2")+"
   public void rbuttondown(){
  transform.translate(3,0,0);
  }
+ //---------------------------------------------------------
  //점프
   public void jbuttondown(){
  transform.translate(0,5,0);
  }
- 
+ //--------------------------------------------------------------
  //체력
  if(d<r1+r2){
  gameobject director = gameobject .find(gamedirector);
  director.getcomponent<gamedirector>().decreasehp();
  destroy(gameobject);// 충돌시 소멸
- 
- 
  }
+ //----------------------------------------------------------------------------------------------------
+ //마우스 클릭 지점 으로 이동
+ public void OnMouseDown () { 
+ RaycastHit hit = new RaycastHit(); 
+ ray = Camera.main.ScreenPointToRay(Input.mousePosition); //이부분 까지는 이해하실꺼에요 
+ if(Physics.Raycast(ray, out hit)) { 
+  Vectro3 pos = hit.point; //pos에 마우스 클릭 지점의 좌표값이 들어가게 돼요. 
+  Destroy(gameObject); 
+  Instantiate(Explosion, pos, Quaternion.identity); 
+ } 
+} 
+ //---------------------------------------------------------------------------------------
+ //마우스 클릭지점 에서 생성
+ //준비물
   
+    // Vector3 계산에 사용.
+    Vector3 tempVector3;
+    // Vector2 계산에 사용.
+    Vector2 tempVector2 = new Vector2();
+    // 생성에 사용되는 오브젝트 처리.
+    GameObject 박스_0;
+  
+  
+  if( Input.GetMouseButtonDown(0) )
+        {
+            // 마우스 입력 위치를 카메라가 바라보는 영역 안의 월드 좌표(절대 좌표)로 변환.
+            tempVector3 = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            tempVector3.z = 0;
+        }
+        
+        tempObj = Instantiate(박스_0, 박스_0Point.position,
+            Quaternion.LookRotation(박스_0Direction)) as GameObject;
+            
+            //------------------------------------------------------------------------------
+            Ray2D ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+RayCastHit2D hit; 
+
+if(Physics2D.Raycast(ray, out hit, distance)) { 
+        hit.point값으로 생성 
+} 
+
