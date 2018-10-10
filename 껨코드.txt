@@ -145,4 +145,12 @@ if(Physics2D.Raycast(ray, out hit, distance)) {
       발사체의 방향, 힘을  x 축으로 고정?
      팔자체의 위치변경
       
+      RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			Physics.Raycast (ray, out hit);
+			
+			GameObject myBullet = Instantiate (Bullet, Bulletstart.transform.position, Bulletstart.transform.rotation) as GameObject;
+			myBullet.transform.LookAt (hit.point);
+      
+      - > myBullet.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
       
