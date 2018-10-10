@@ -154,3 +154,21 @@ if(Physics2D.Raycast(ray, out hit, distance)) {
       
       - > myBullet.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
       
+      GameObject myBullet = Instantiate (bullet, spPoint.transform.position, spPoint.transform.rotation); 식으로 하시고 
+발사할떄는 myBullet.rigidbody.AddForce (spPoint.transform.forward * power);
+
+Transform.TransformDirection 확인할것
+
+
+
+플레이어 0 이 와이퍼처럼 회전(로테이션)한다면 게임오브젝트의 gameObject.transform.forward 로 오브젝트가 가리키는 front방향을 찾을수 있습니다. 이 벡터는 오브젝트가 바라보고있는 방향을 제시해주고 크기는 항상 1입니다. 
+
+플레이어는 그대로고 총구가 와이퍼처럼 회전한다면 총구의  gameObject.transform.forward 를 이용할수 있겠습니다. 
+
+만약 회전하는 방법을 물으신것이라면 간단하게는 트윈로테이션부터 코루틴등 다양한 방법으로 회전시킬수 있고... 
+
+더미오브젝트하나를 플레이어 앞에 좌우로 핑퐁이동시켜놓고 플레이어가 update()에서 더미오브젝트에 대해 transform.Lookat(더미오브젝트); 을 호출하면 이동하는 오브젝트를 계속 쳐다보게 됩니다.(와이퍼처럼 움직이게 되겠죠)
+
+2D형식이면 forward 축이 y인가요? 
+그럼 그냥 Transform.up 하시면 될 것 같은데요...
+      
