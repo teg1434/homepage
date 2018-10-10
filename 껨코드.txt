@@ -172,3 +172,8 @@ Transform.TransformDirection 확인할것
 2D형식이면 forward 축이 y인가요? 
 그럼 그냥 Transform.up 하시면 될 것 같은데요...
       
+      vector2 (위치조정) = (Camera.main.screentoworldpoint(input.mousePosition) - (발사체).transform.position);
+      getcomponen<transform>().transform.translate(위치조정.normalized*bulletspeed*time.deltatime);
+      
+      http://ronniej.sfuh.tk/category/game-development-and-programming/unity3d/page/10/  // 
+      
